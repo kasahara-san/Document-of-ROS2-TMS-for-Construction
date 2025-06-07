@@ -29,7 +29,17 @@ OperaSim-PhysX上の建設機械を実際に動作させるまでの流れを説
       mongodb-compass
    
 3. ポップアップするMongodbの画面にて、URIで"mongodb://localhost:27017/"と指定されていることを確認し、"Connect"ボタンをクリックすると表示される画面にて、rostmsdbをクリックして以下の画面が開けばデータベースの設定が完了している。
+   なお、データの個数などはここでは気にせず、単にrostmsdbデータベース下のコレクションが画像のものと同様に生成されていれば問題ない。
 
+   .. image:: images/db_setup.png
+      :alt: db_setup
+      :width: 400px
+      :align: center  
+
+   .. raw:: html
+
+      <br><br>
+   
    もしデータベースが上記の表示にならない場合、データベースの構築ができておらず、このままでは正常にタスクを起動できない。
    この場合には以下のコマンドを実行する。::
        
@@ -43,8 +53,19 @@ OperaSim-PhysX上の建設機械を実際に動作させるまでの流れを説
       source install/setup.bash
       ros2 launch tms_ts_launch tms_ts_construction.launch.py task_id:=[タスクID]
     
+    
     すると以下に示すGUIボタンが表示される。GUIボタンには2種類のボタンが搭載されており、緑の部分をクリックするとサンプルタスクが実行される。また、赤色の領域をクリックするとタスク実行を緊急停止させることができる。
 
+
+   .. image:: images/gui_button.png
+    :alt: gui_button
+    :width: 300px
+    :align: center  
+
+   .. raw:: html
+
+      <br><br>
+   
 
     なお、データベースに格納されているサンプルタスクの概要は以下に示すとおりである。
 
@@ -68,12 +89,31 @@ BehaviorTree.CPPではGrootと呼ばれるGUIアプリケーションが存在�
    Monitor機能はBehavior Treeがタスクを実行している間のみ実行可能です。
 
 2. Grootを起動すると、以下の画面が表示される。可視化機能の起動には"Monitor"と記載されている部分をクリックする。
-3. すると以下の画面が表示されるので、以下に示すとおりIPアドレスとポートを指定し、"Connect"ボタンをクリックする。
    
+     
+  .. image:: images/groot_menu.png
+   :alt: groot_menu
+   :width: 300px
+   :align: center  
+
+.. raw:: html
+
+   <br><br>
+
+3. すると以下の画面が表示されるので、以下に示すとおりIPアドレスとポートを指定し、"Connect"ボタンをクリックする。
 
    - Sensing IP : localhost
    - Publisher Port : 1666
    - Server Port : 1667
+
+  .. image:: images/groot_monitor_menu.png
+   :alt: groot_monitor_menu
+   :width: 300px
+   :align: center  
+
+.. raw:: html
+
+   <br><br>
    
 .. note::
 
@@ -87,6 +127,13 @@ BehaviorTree.CPPではGrootと呼ばれるGUIアプリケーションが存在�
    タスクが可視化されず、以下のポップアップウィンドウが表示される場合がある。これはBehavior Treeがタスクを実行されていない若しくは実行終了していた場合に表示される。
    このような場合、`こちら <sample-task-execusion_>`_ の手順にしたがって再度タスクを実行し、必ずBehavior Treeがタスクを実行している間に"Connect"ボタンを押してください。
 
+     .. image:: images/groot_monitoring_warn.png
+      :alt: groot_monitoring_warn
+      :width: 300px
+      :align: center  
+
+   .. raw:: html
+
 
 タスクの作成
 ===================================
@@ -99,12 +146,42 @@ BehaviorTree.CPPではGrootと呼ばれるGUIアプリケーションが存在�
       ros2 run groot Groot
 
 2. Grootを起動すると、以下の画面が表示される。可視化機能の起動には"Monitor"と記載されている部分をクリックする。
+ 
+  .. image:: images/groot_menu.png
+   :alt: groot_menu
+   :width: 300px
+   :align: center  
+
+.. raw:: html
+
 3. そして表示された画面上で以下の手順でカスタムノードの追加を行う。ここでいうカスタムノードとはROS2-TMS for Construction
    で独自に用意したBehavior Treeノード(以降、BTノードと呼ぶ)のことを指す。
 
+     .. image:: images/groot_add_custom_nodes.png
+      :alt: groot_add_custom_nodes
+      :width: 300px
+      :align: center  
+
+   .. raw:: html
+
    すると、以下に示すように新たに複数のノードが追加される。
+
+     .. image:: images/custom_nodes.png
+      :alt: custom_nodes
+      :width: 300px
+      :align: center  
+
+   .. raw:: html
+
 4. この状態で任意のタスクを構築していく。なお、Leaf Nodeの概要はこちらに、その他のカスタムノード及びBehavior Treeの標準ノードの
 概要はこちらで説明したとおりである。これらのノードをもとにタスクを構築する。タスクの例を以下に示す。
+
+     .. image:: images/sample_task.png
+      :alt: sample_task
+      :width: 300px
+      :align: center  
+
+   .. raw:: html
 
 .. note::
 
@@ -113,6 +190,13 @@ BehaviorTree.CPPではGrootと呼ばれるGUIアプリケーションが存在�
 
 5. Groot上でタスクを作成したあとは以下の手順に沿って、src/ros2_tms_for_construction/tms_ts/tms_ts_manager/configディレクトリ下にタスク列のxmlファイル
 を出力します。
+
+     .. image:: images/save_task.png
+      :alt: save_task
+      :width: 300px
+      :align: center  
+
+   .. raw:: html
 
 6. xml形式のタスク列を出力した後は、以下のコマンドを実行しデータベース上にタスクデータとして登録します。::
       

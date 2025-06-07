@@ -44,3 +44,20 @@ Subatask Nodes
 - :doc:`subtask_mst110cr_follow_waypoints <CustomNodes/SubtaskMst110crFollowWaypoints>`
 - :doc:`subtask_mst110cr_navigate_through_poses <CustomNodes/SubtaskMst110crNavigateThroughPoses>`
 - :doc:`subtask_mst110cr_release_soil <CustomNodes/SubtaskMst110crReleaseSoil>`
+
+
+また、Leaf NodeとSubtask Node以外にも以下のCustom Nodeが存在する。
+
+
+Other Custom Nodes
+-----------
+- :doc:`BlackboadrValueReaderMongo <CustomNodes/BlackboadrValueReaderMongo>`
+- :doc:`ConditionalExpression <CustomNodes/ConditionalExpression>`
+- :doc:`MongoValueWriter <CustomNodes/MongoValueWriter>`
+- :doc:`SetLocalBlackboard <CustomNodes/SetLocalBlackboard>`
+- :doc:`KeepRunningUntilFlgup <CustomNodes/KeepRunningUntilFlgup>`
+- 
+
+
+
+
